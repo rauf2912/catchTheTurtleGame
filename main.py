@@ -7,12 +7,15 @@ screen.bgcolor("light blue")
 screen.title("catch the turtle")
 FONT = ('Arial', 30, 'normal')
 score = 0
+game_over = False
 #turtle list
 turtle_list = []
 #score_turtle
 
 score_turtle = turtle.Turtle()
+#countdown_turtle
 
+countdown_turtle = turtle.Turtle()
 def setup_score_turtle():
     score_turtle.hideturtle()
     score_turtle.color("dark blue")
@@ -54,17 +57,40 @@ def hide_turtles():
         t.hideturtle()
 
 def show_turtle_randomly():
+    if not game_over:
+        hide_turtles()
+        random.choice(turtle_list).showturtle()
+        screen.ontimer(show_turtle_randomly, 500)
+
+def countDown(time):
+    global game_over
+    countdown_turtle.hideturtle()
+    countdown_turtle.color("dark blue")
+    countdown_turtle.penup()
+    top_height = screen.window_height() / 2
+    y = top_height * 0.87
+    countdown_turtle.setpos(0, y-30)
+    countdown_turtle.clear()
+    if time > 0:
+        countdown_turtle.clear()
+        countdown_turtle.write(arg="Time: {}".format(time), move=False, font=FONT)
+        screen.ontimer(lambda: countDown(time-1), 1000)
+    else:
+        game_over = True
+        countdown_turtle.clear()
+        hide_turtles()
+        countdown_turtle.write(arg="Game over!", move=False, font=FONT)
+
+
+def start_game_up():
+    turtle.tracer(0)
+    setup_turtles()
+    setup_score_turtle()
     hide_turtles()
-    random.choice(turtle_list).showturtle()
-    screen.ontimer(show_turtle_randomly, 500)
+    show_turtle_randomly()
+    countDown(10)
+    turtle.tracer(1)
 
-turtle.tracer(0)
-
-setup_turtles()
-setup_score_turtle()
-hide_turtles()
-show_turtle_randomly()
-turtle.tracer(1)
-
+start_game_up()
 
 turtle.mainloop()

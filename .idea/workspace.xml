@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7c0872a-4bc2-41cf-9063-b53d2c84a5ce" name="Changes" comment="some changes in game">
+    <list default="true" id="b7c0872a-4bc2-41cf-9063-b53d2c84a5ce" name="Changes" comment="on timer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -89,12 +89,21 @@
       <option name="project" value="LOCAL" />
       <updated>1704356803861</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="on timer">
+      <option name="closed" value="true" />
+      <created>1704364335740</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704364335740</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="catch the turtle make_turtles" />
     <MESSAGE value="some changes in game" />
-    <option name="LAST_COMMIT_MESSAGE" value="some changes in game" />
+    <MESSAGE value="on timer" />
+    <option name="LAST_COMMIT_MESSAGE" value="on timer" />
   </component>
 </project>
