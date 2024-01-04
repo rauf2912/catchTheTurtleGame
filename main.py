@@ -1,9 +1,13 @@
 import turtle
+import random
+
 
 screen = turtle.Screen()
 screen.bgcolor("light blue")
 screen.title("catch the turtle")
 FONT = ('Arial', 30, 'normal')
+#turtle list
+turtle_list = []
 #score_turtle
 
 score_turtle = turtle.Turtle()
@@ -17,7 +21,7 @@ def setup_score_turtle():
     score_turtle.setpos(0, y)
     score_turtle.write(arg="Score: 0", move=False, font=FONT)
 
-setup_score_turtle()
+
 
 grid_size = 10
 def make_turtle(x, y):
@@ -27,29 +31,30 @@ def make_turtle(x, y):
     t.shapesize(2, 2)
     t.color("dark green")
     t.goto(x*grid_size, y*grid_size)
-make_turtle(-20, 20)
-make_turtle(-10, 20)
-make_turtle(0, 20)
-make_turtle(10, 20)
-make_turtle(20, 20)
+    turtle_list.append(t)
 
-make_turtle(-20, 10)
-make_turtle(-10, 10)
-make_turtle(0, 10)
-make_turtle(10, 10)
-make_turtle(20, 10)
+x_cordinates = [-20, -10, 0, 10, 20]
+y_cordinates = [20, 10, 0, -10]
 
-make_turtle(-20, 0)
-make_turtle(-10, 0)
-make_turtle(0, 0)
-make_turtle(10, 0)
-make_turtle(20, 0)
+def setup_turtles():
+    for x in x_cordinates:
+        for y in y_cordinates:
+            make_turtle(x, y)
 
-make_turtle(-20, -10)
-make_turtle(-10, -10)
-make_turtle(0, -10)
-make_turtle(10, -10)
-make_turtle(20, -10)
+def hide_turtles():
+    for t in turtle_list:
+        t.hideturtle()
+
+def show_turtle_randomly():
+    random.choice(turtle_list).showturtle()
+
+turtle.tracer(0)
+
+setup_turtles()
+setup_score_turtle()
+hide_turtles()
+show_turtle_randomly()
+turtle.tracer(1)
 
 
 turtle.mainloop()
